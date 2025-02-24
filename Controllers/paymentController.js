@@ -63,8 +63,8 @@ export const createCheckoutSession = async (req, res) => {
         payment_method_types: ["card"],
         line_items: lineItems,
         mode: "payment",
-        success_url: `http://localhost:3000/order/success?id=${savedCheckout._id}`,
-        cancel_url: "http://localhost:3000/cancel",
+        success_url: `https://ryd-cleanease.netlify.app/order/success?id=${savedCheckout._id}`,
+        cancel_url: "https://ryd-cleanease.netlify.app/order/cancel",
         metadata: { checkoutId: savedCheckout._id.toString() },
         payment_intent_data: {
           metadata: {

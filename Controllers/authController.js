@@ -25,32 +25,44 @@ export const registerUser = async (req, res, next) => {
     return next(errorHandler(400, "All the Fields Are Required"));
   }
 
-  // Hashing the password
-  const hashedPassword = bcryptjs.hashSync(password, 10);
-
-  // Creating a new customer in Stripe
-  const customer = await stripe.customers.create({
-    email: email,
-    name: username,
-  });
-
-  // Creating a new user in the database
-  const newUser = new User({
-    username,
-    email,
-    password: hashedPassword,
-    stripeCustomerId: customer.id,
-  });
   try {
-    await newUser.save();
+    // Check if the username already exists
+    const existingUserByUsername = await User.findOne({ username });
+    if (existingUserByUsername) {
+      return next(errorHandler(400, "Username already exists"));
+    }
+
+    // Check if the email already exists
+    const existingUserByEmail = await User.findOne({ email });
+    if (existingUserByEmail) {
+      return next(errorHandler(400, "Email already exists"));
+    }
+
+    // Hashing the password
+    const hashedPassword = bcryptjs.hashSync(password, 10);
+
+    // Creating a new customer in Stripe
+    const customer = await stripe.customers.create({
+      email: email,
+      name: username,
+    });
+
+    // Creating a new user in the database
+    const newUser  = new User({
+      username,
+      email,
+      password: hashedPassword,
+      stripeCustomerId: customer.id,
+    });
+
+    await newUser .save();
     res
       .status(200)
-      .json({ message: "User Registered successfully", result: newUser });
+      .json({ message: "User  Registered successfully", result: newUser  });
   } catch (error) {
     next(error);
   }
 };
-
 // Existing user Login
 export const loginUser = async (req, res, next) => {
   const { email, password } = req.body;

@@ -2,6 +2,7 @@
 import { addMonths, isAfter } from "date-fns";
 import Order from "../Models/orderModel.js";
 import User from "../Models/userModel.js";
+import { fromZonedTime} from "date-fns-tz";
 
 
 // Creates a new order
@@ -64,24 +65,19 @@ export const getOrders = async (req, res) => {
     }
 
     const currentDate = new Date();
-    console.log(`current time is - ${currentDate}`)
+    console.log(`current time is - ${currentDate}`);
     const updatePromises = user.orders.map(async (order) => {
       let orderUpdated = false; // Flag to check if the order was updated
 
       order.items.forEach((item) => {
         if (item.serviceDate && item.serviceTime) {
-          const serviceDateTime = new Date(
-            `${item.serviceDate} ${item.serviceTime}`            
-          );
-          console.log(`serviceDateTime is - ${serviceDateTime}`);
-          
+          const serviceDateTime = new Date(`${item.serviceDate} ${item.serviceTime}`);
+          const serviceDateTimeUtc = fromZonedTime(serviceDateTime, 'Asia/Kolkata'); // Convert to UTC
+          console.log(`serviceDateTime in UTC is - ${serviceDateTimeUtc}`);
 
-          if (isAfter(currentDate, serviceDateTime)) {
-            const twoHoursLater = new Date(
-              serviceDateTime.getTime() + 2 * 60 * 60 * 1000
-            );
-            console.log(`twoHoursLater is - ${twoHoursLater}`);
-            
+          if (isAfter(currentDate, serviceDateTimeUtc)) {
+            const twoHoursLater = new Date(serviceDateTimeUtc.getTime() + 2 * 60 * 60 * 1000);
+            console.log(`twoHoursLater in UTC is - ${twoHoursLater}`);
 
             if (isAfter(currentDate, twoHoursLater)) {
               item.status = "Completed";

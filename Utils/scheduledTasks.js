@@ -5,8 +5,8 @@ import Order from "../Models/orderModel.js";
 import { fromZonedTime} from "date-fns-tz";
 import { isAfter } from "date-fns";
 
-// Schedule a task to run every 12 hours
-cron.schedule("0 */12 * * *", async () => {
+// Schedule a task to run every 6 hours
+cron.schedule("0 */6 * * *", async () => {
   try {
     console.log("Scheduled task running...");
 
@@ -25,10 +25,10 @@ cron.schedule("0 */12 * * *", async () => {
   }
 });
 
-// Schedule a task to run every minute
-cron.schedule("* * * * *", async () => {
+// Schedule a task to run every 30 minutes
+cron.schedule("*/30 * * * *", async () => {
   try {
-    console.log("Scheduled task running...");
+    console.log("Scheduled task for updating order statuses running...");
 
     const currentDate = new Date();
     const orders = await Order.find(); // Fetch all orders

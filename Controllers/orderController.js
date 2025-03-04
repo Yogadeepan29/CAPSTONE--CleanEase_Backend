@@ -64,19 +64,24 @@ export const getOrders = async (req, res) => {
     }
 
     const currentDate = new Date();
+    console.log(currentDate)
     const updatePromises = user.orders.map(async (order) => {
       let orderUpdated = false; // Flag to check if the order was updated
 
       order.items.forEach((item) => {
         if (item.serviceDate && item.serviceTime) {
           const serviceDateTime = new Date(
-            `${item.serviceDate} ${item.serviceTime}`
+            `${item.serviceDate} ${item.serviceTime}`            
           );
+          console.log(serviceDateTime);
+          
 
           if (isAfter(currentDate, serviceDateTime)) {
             const twoHoursLater = new Date(
               serviceDateTime.getTime() + 2 * 60 * 60 * 1000
             );
+            console.log(twoHoursLater);
+            
 
             if (isAfter(currentDate, twoHoursLater)) {
               item.status = "Completed";

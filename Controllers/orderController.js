@@ -65,7 +65,7 @@ export const getOrders = async (req, res) => {
     }
 
     const currentDate = new Date();
-    console.log(`current time is - ${currentDate}`);
+    // console.log(`current time is - ${currentDate}`);
     const updatePromises = user.orders.map(async (order) => {
       let orderUpdated = false; // Flag to check if the order was updated
 
@@ -73,11 +73,11 @@ export const getOrders = async (req, res) => {
         if (item.serviceDate && item.serviceTime) {
           const serviceDateTime = new Date(`${item.serviceDate} ${item.serviceTime}`);
           const serviceDateTimeUtc = fromZonedTime(serviceDateTime, 'Asia/Kolkata'); // Convert to UTC
-          console.log(`serviceDateTime in UTC is - ${serviceDateTimeUtc}`);
+          // console.log(`serviceDateTime in UTC is - ${serviceDateTimeUtc}`);
 
           if (isAfter(currentDate, serviceDateTimeUtc)) {
             const twoHoursLater = new Date(serviceDateTimeUtc.getTime() + 2 * 60 * 60 * 1000);
-            console.log(`twoHoursLater in UTC is - ${twoHoursLater}`);
+            // console.log(`twoHoursLater in UTC is - ${twoHoursLater}`);
 
             if (isAfter(currentDate, twoHoursLater)) {
               item.status = "Completed";

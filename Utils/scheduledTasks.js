@@ -2,7 +2,8 @@ import cron from "node-cron";
 import Service from "../Models/servicesModel.js";
 import { updateServiceRatingAndReviewCount } from "../Controllers/reviewController.js";
 import Order from "../Models/orderModel.js";
-import { fromZonedTime, isAfter } from "date-fns-tz";
+import { fromZonedTime} from "date-fns-tz";
+import { isAfter } from "date-fns";
 
 // Schedule a task to run every 12 hours
 cron.schedule("0 */12 * * *", async () => {

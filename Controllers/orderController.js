@@ -64,7 +64,7 @@ export const getOrders = async (req, res) => {
     }
 
     const currentDate = new Date();
-    console.log(currentDate)
+    console.log(`current time is - ${currentDate}`)
     const updatePromises = user.orders.map(async (order) => {
       let orderUpdated = false; // Flag to check if the order was updated
 
@@ -73,14 +73,14 @@ export const getOrders = async (req, res) => {
           const serviceDateTime = new Date(
             `${item.serviceDate} ${item.serviceTime}`            
           );
-          console.log(serviceDateTime);
+          console.log(`serviceDateTime is - ${serviceDateTime}`);
           
 
           if (isAfter(currentDate, serviceDateTime)) {
             const twoHoursLater = new Date(
               serviceDateTime.getTime() + 2 * 60 * 60 * 1000
             );
-            console.log(twoHoursLater);
+            console.log(`twoHoursLater is - ${twoHoursLater}`);
             
 
             if (isAfter(currentDate, twoHoursLater)) {

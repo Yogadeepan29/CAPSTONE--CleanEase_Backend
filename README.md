@@ -1,4 +1,4 @@
-# CleanEase API Backend
+# <h1 align='center'>CleanEase API - Backend</h1>
 
 CleanEase API is a backend system for a cleaning service application built using **Node.js**, **Express.js**, and **MongoDB**. This backend provides authentication, service management, cart functionality, payments (via Stripe), and scheduling features.
 

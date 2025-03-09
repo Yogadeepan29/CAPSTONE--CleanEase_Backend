@@ -5,8 +5,8 @@ import { saveCheckoutData, getCheckoutData, createOrderFromCheckoutData } from '
 
 const checkoutRouter = express.Router();
 
-// Route to save checkout data
-checkoutRouter.post('/save-checkout-data', verifyToken, saveCheckoutData);
+// // Route to save checkout data
+// checkoutRouter.post('/save-checkout-data', verifyToken, saveCheckoutData);
 
 // Route to get checkout data by sessionId
 checkoutRouter.get('/:checkoutId', verifyToken, getCheckoutData);

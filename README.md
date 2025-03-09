@@ -109,7 +109,11 @@ npm start
 
 ---
 
+## 📜 API Documentation
 
+For detailed API documentation, please visit the following link: [API Documentation](https://documenter.getpostman.com/view/35158032/2sAYdoG8Kq)
+
+---
 
 ## 📌 API Endpoints
 
@@ -232,7 +236,4 @@ npm start
 - **Frontend:** Deployed on Netlify → [Live Demo](https://ryd-cleanease.netlify.app/)
 - **Backend:** Deployed on Render → [API](https://capstone-cleanease-backend.onrender.com)
 
-
-## 📜 API Documentation
-
-For detailed API documentation, please visit the following link: [API Documentation](https://documenter.getpostman.com/view/35158032/2sAYdoG8Kq)
+---

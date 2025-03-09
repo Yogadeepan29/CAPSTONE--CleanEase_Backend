@@ -1,7 +1,7 @@
 // Routes/checkoutRouter.js
 import express from 'express';
 import { verifyToken } from '../Middleware/verifyToken.js';
-import { saveCheckoutData, getCheckoutData, createOrderFromCheckoutData } from '../Controllers/checkoutController.js';
+import { getCheckoutData, createOrderFromCheckoutData } from '../Controllers/checkoutController.js';
 
 const checkoutRouter = express.Router();
 

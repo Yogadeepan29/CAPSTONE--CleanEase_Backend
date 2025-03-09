@@ -160,7 +160,6 @@ CAPSTONE-CleanEase-(BACKEND)/
 | Method | Endpoint                     | Description                        |
 | ------ | ---------------------------- | ---------------------------------- |
 | GET    | `/api/order/orders`          | Get order details based on user    |
-| POST   | `/api/order/orders`          | Create new order                   |
 | POST   | `/api/order/toggle-reminder` | Reminder for order                 |
 | GET    | `/api/order/total-orders`    | Get total orders and revenue count |
 | GET    | `/api/order/all`             | Get all order details              |

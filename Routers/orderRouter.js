@@ -8,9 +8,6 @@ const orderRouter = express.Router();
 // Route to get all orders for the authenticated user
 orderRouter.get('/orders', verifyToken, getOrders);
 
-// // Route to create a new order for the authenticated user
-// orderRouter.post('/orders', verifyToken, createOrder);
-
 // Route to toggle the reminder for an order item
 orderRouter.post('/toggle-reminder', verifyToken, toggleReminder);
 

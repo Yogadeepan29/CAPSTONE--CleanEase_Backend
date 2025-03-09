@@ -5,49 +5,6 @@ import User from "../Models/userModel.js";
 import { fromZonedTime} from "date-fns-tz";
 
 
-// // Creates a new order
-// export const createOrder = async (req, res) => {
-//   try {
-//     const { sessionId, items, totalAmount, source, serviceAddressId, serviceAddress } = req.body; 
-//     const userId = req.user.id;
-
-//     // Fetch the username from the User model
-//     const user = await User.findById(userId);
-//     if (!user) {
-//       return res.status(404).json({ message: "User  not found" });
-//     }
-
-//     // Create the order
-//     const order = new Order({
-//       sessionId,
-//       userId,
-//       username: user.username, 
-//       items: items.map((item) => ({
-//         productId: item.productId,
-//         addons: item.addons.map((addon) => mongoose.Types.ObjectId(addon.id)),
-//         name: item.name,
-//         price: item.price,
-//         quantity: item.quantity,
-//         reviewed: false,
-//         status: "upcoming",
-//         serviceAddressId,
-//         serviceAddress, 
-//       })),
-//       totalAmount,
-//       source,
-//     });
-//     await order.save();
-
-//     // Update the user with the new order
-//     await User.findByIdAndUpdate(userId, { $push: { orders: order._id } });
-
-//     return res.status(201).json(order);
-//   } catch (error) {
-//     console.error("Error creating order:", error);
-//     return res.status(500).json({ error: error.message });
-//   }
-// };
-
 // Retrieves all orders
 export const getOrders = async (req, res) => {
   try {

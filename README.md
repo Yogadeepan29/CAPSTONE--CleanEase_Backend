@@ -2,16 +2,18 @@
 
 CleanEase API is a backend system for a cleaning service application built using **Node.js**, **Express.js**, and **MongoDB**. This backend provides authentication, service management, cart functionality, payments (via Stripe), and scheduling features.
 
+---
+
 ## 🚀 Features
 
-- **User Authentication:** Register, login, and manage users securely with JWT authentication.
-- **Service Management:** Add, update, delete, and retrieve cleaning services.
-- **Cart & Order System:** Users can add services to their cart and place orders.
-- **Payment Integration:** Secure payments via **Stripe Checkout**.
-- **Reviews & Ratings:** Users can leave reviews for services.
-- **Scheduled Tasks:** Uses `node-cron` for automated tasks.
-- **Secure API Routes:** Middleware for authentication and error handling.
-- **Webhook Handling:** Stripe webhooks for payment confirmation.
+- **🔐 User Authentication:** Register, login, and manage users securely with JWT authentication.  
+- **🧹 Service Management:** Add, update, delete, and retrieve cleaning services.  
+- **🛒 Cart & Order System:** Users can add services to their cart and place orders.  
+- **💳 Payment Integration:** Secure payments via **Stripe Checkout**.  
+- **⭐ Reviews & Ratings:** Users can leave reviews for services.  
+- **⏳ Scheduled Tasks:** Uses `node-cron` for automated tasks.  
+- **🔒 Secure API Routes:** Middleware for authentication and error handling.  
+- **🔔 Webhook Handling:** Stripe webhooks for payment confirmation.  
 
 ---
 
@@ -61,55 +63,57 @@ npm start
 ## 📂 Project Structure
 
 ```
-CAPSTONE-CleanEase-(BACKEND)/
-├── .env                         # Environment variables
-├── .gitignore                   # Files to ignore in version control
-├── Controllers/                 # Contains route controllers
-│   ├── authController.js
-│   ├── cartController.js
-│   ├── checkoutController.js
-│   ├── orderController.js
-│   ├── paymentController.js
-│   ├── reviewController.js
-│   ├── serviceController.js
-│   ├── userController.js
-│   ├── webhookController.js
-├── Database/                    # Database configuration
-│   ├── config.js
-│   ├── services.js
-├── Middleware/                  # Authentication & error handling middleware
-│   ├── errorMiddleware.js
-│   ├── verifyToken.js
-├── Models/                      # Mongoose models for MongoDB
-│   ├── cartModel.js
-│   ├── checkoutModel.js
-│   ├── orderModel.js
-│   ├── reviewModel.js
-│   ├── servicesModel.js
-│   ├── userModel.js
-├── package-lock.json
-├── package.json                 # Project dependencies
-├── Routers/                     # API routes
-│   ├── authRouter.js
-│   ├── cartRouter.js
-│   ├── checkoutRouter.js
-│   ├── orderRouter.js
-│   ├── paymentRouter.js
-│   ├── reviewRouter.js
-│   ├── servicesRouter.js
-│   ├── userRouter.js
-│   ├── webhookRouter.js
-├── server.js                    # Main entry point
-├── Utils/                       # Utility functions and scheduled tasks
-│   ├── Error.js
-│   ├── scheduledTasks.js
+📁 CAPSTONE-CleanEase-(BACKEND)/
+├── 📜 .env                         # Environment variables
+├── 🚫 .gitignore                   # Files to ignore in version control
+├── 📂 Controllers/                 # Contains route controllers
+│   ├── 🔑 authController.js
+│   ├── 🛒 cartController.js
+│   ├── 💳 checkoutController.js
+│   ├── 📦 orderController.js
+│   ├── 💰 paymentController.js
+│   ├── ⭐ reviewController.js
+│   ├── 🧹 serviceController.js
+│   ├── 👤 userController.js
+│   ├── 🔔 webhookController.js
+├── 📂 Database/                    # Database configuration
+│   ├── ⚙️ config.js
+│   ├── 🗄️ services.js
+├── 📂 Middleware/                  # Authentication & error handling middleware
+│   ├── 🚨 errorMiddleware.js
+│   ├── 🔐 verifyToken.js
+├── 📂 Models/                      # Mongoose models for MongoDB
+│   ├── 🛍️ cartModel.js
+│   ├── 🏁 checkoutModel.js
+│   ├── 📜 orderModel.js
+│   ├── 🌟 reviewModel.js
+│   ├── 🏠 servicesModel.js
+│   ├── 👤 userModel.js
+├── 📦 package-lock.json
+├── 📜 package.json                 # Project dependencies
+├── 📂 Routers/                     # API routes
+│   ├── 🔑 authRouter.js
+│   ├── 🛒 cartRouter.js
+│   ├── 💳 checkoutRouter.js
+│   ├── 📦 orderRouter.js
+│   ├── 💰 paymentRouter.js
+│   ├── ⭐ reviewRouter.js
+│   ├── 🏠 servicesRouter.js
+│   ├── 👤 userRouter.js
+│   ├── 🔔 webhookRouter.js
+├── 🚀 server.js                    # Main entry point
+├── 📂 Utils/                       # Utility functions and scheduled tasks
+│   ├── ❌ Error.js
+│   ├── ⏳ scheduledTasks.js
 ```
 
 ---
 
+
+
 ## 📌 API Endpoints
 
-### 🔹 Authentication
+### 🔹 🪪 Authentication
 
 | Method | Endpoint                  | Description          |
 | ------ | ------------------------- | -------------------- |
@@ -117,7 +121,7 @@ CAPSTONE-CleanEase-(BACKEND)/
 | POST   | `/api/auth/login-user`    | User login           |
 | POST   | `/api/auth/google`        | O-Auth Google Signin |
 
-### 🔹 User
+### 🔹👥 User
 
 | Method | Endpoint                       | Description                         |
 | ------ | ------------------------------ | ----------------------------------- |
@@ -129,7 +133,7 @@ CAPSTONE-CleanEase-(BACKEND)/
 | GET    | `/api/user/total`              | Getting total Number of users count |
 | GET    | `/api/user/all`                | Getting all user details            |
 
-### 🔹 Services
+### 🔹🧹 Services
 
 | Method | Endpoint                                           | Description                          |
 | ------ | -------------------------------------------------- | ------------------------------------ |
@@ -143,7 +147,7 @@ CAPSTONE-CleanEase-(BACKEND)/
 | PUT    | `/api/services/product/:id/admin`                  | update admin created services by ID  |
 | DELETE | `/api/services/product/:id`                        | Delete created services by ID        |
 
-### 🔹 Cart
+### 🔹🛒 Cart
 
 | Method | Endpoint                        | Description                |
 | ------ | ------------------------------- | -------------------------- |
@@ -155,7 +159,7 @@ CAPSTONE-CleanEase-(BACKEND)/
 | DELETE | `/api/cart/clear`               | clear all items in cart    |
 | PUT    | `/api/cart/update-subscription` | update subscription        |
 
-### 🔹 Orders
+### 🔹📦 Orders
 
 | Method | Endpoint                     | Description                        |
 | ------ | ---------------------------- | ---------------------------------- |
@@ -164,22 +168,21 @@ CAPSTONE-CleanEase-(BACKEND)/
 | GET    | `/api/order/total-orders`    | Get total orders and revenue count |
 | GET    | `/api/order/all`             | Get all order details              |
 
-### 🔹 Payments
+### 🔹💰 Payments
 
 | Method | Endpoint                                                | Description                             |
 | ------ | ------------------------------------------------------- | --------------------------------------- |
 | POST   | `/api/payment/create-checkout-session`                  | Process Stripe payment for one-time     |
 | POST   | `/api/payment/create-checkout-session-for-subscription` | Process Stripe payment for subscription |
 
-### 🔹 Checkout
+### 🔹💳 Checkout
 
 | Method | Endpoint                                         | Description                |
 | ------ | ------------------------------------------------ | -------------------------- |
-| POST   | `/api/checkout/save-checkout-data`               | Save checkout data         |
 | GET    | `/api/checkout/:checkoutId`                      | Retrive checkout data      |
 | POST   | `/api/checkout/create-from-checkout/:checkoutId` | Create order from checkout |
 
-### 🔹 Review
+### 🔹⭐ Review
 
 | Method | Endpoint                         | Description       |
 | ------ | -------------------------------- | ----------------- |
@@ -189,7 +192,7 @@ CAPSTONE-CleanEase-(BACKEND)/
 | GET    | `/api/review/:productId`         | Get review by ID  |
 | PATCH  | `/api/review/:respond/:reviewId` | Respond to review |
 
-### 🔹 Webhook
+### 🔹🔔 Webhook
 
 | Method | Endpoint       | Description            |
 | ------ | -------------- | ---------------------- |
@@ -219,18 +222,17 @@ CAPSTONE-CleanEase-(BACKEND)/
 
 ---
 
-## 📜 License
-
-This project is licensed under the **ISC License**.
-
----
-
 ## 👨‍💻 Author
 
 **Yogadeepan R**
 
 ---
 
-## Deployment
+## 🎯 Deployment
 - **Frontend:** Deployed on Netlify → [Live Demo](https://ryd-cleanease.netlify.app/)
 - **Backend:** Deployed on Render → [API](https://capstone-cleanease-backend.onrender.com)
+
+
+## 📜 API Documentation
+
+For detailed API documentation, please visit the following link: [API Documentation](https://documenter.getpostman.com/view/35158032/2sAYdoG8Kq)

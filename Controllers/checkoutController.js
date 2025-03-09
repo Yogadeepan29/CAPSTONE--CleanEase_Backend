@@ -2,26 +2,6 @@ import Checkout from "../Models/checkoutModel.js";
 import Order from "../Models/orderModel.js";
 import User from "../Models/userModel.js";
 
-// // Saves checkout data before payment
-// export const saveCheckoutData = async (req, res) => {
-//   const { checkoutData } = req.body;
-
-//   try {
-//     const newCheckout = new Checkout({
-//       userId: req.user.id,
-//       checkoutData,
-//     });
-
-//     await newCheckout.save();
-//     res
-//       .status(200)
-//       .json({ message: "Checkout data saved", id: newCheckout._id });
-//   } catch (error) {
-//     console.error("Error saving checkout data:", error);
-//     res.status(500).json({ error: error.message });
-//   }
-// };
-
 // Retrieves checkout data after payment.
 export const getCheckoutData = async (req, res) => {
   const { checkoutId } = req.params;
